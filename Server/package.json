@@ -2,6 +2,7 @@
   "name": "web-server",
   "version": "1.0.0",
   "description": "Web Server that uses Express & Mongoose",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
