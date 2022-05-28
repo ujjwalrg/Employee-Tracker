@@ -4,7 +4,7 @@ import MySchema from '../Models/listofevents.js';
 const getAllData = async (req, res) => {
     try {
     const getData = await MySchema.find();
-    res.json(getData);
+    res.status(202).json(getData);
     } catch(error) {
         res.status(404).json({message:error})
     }
@@ -20,3 +20,4 @@ const postData = async(req, res) => {
         // res.json(myModel.find());
 };
 
+export {getAllData, postData}
