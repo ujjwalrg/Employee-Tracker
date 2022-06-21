@@ -3,14 +3,15 @@ import mongoose from "mongoose";
 const schema = mongoose.Schema({
     name: String,
     title: String,
-    description: String,
-    venue: String,
-    people: [String],
-    likeCount: {
+    address: String,
+    number: Number,
+    picture: String,
+    skills: [String],
+    salary: {
         type: Number,
         default: 0,
     },
-    dateCreated: {
+    dateHired: {
         type: Date,
         default: new Date(),
     }
