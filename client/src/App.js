@@ -1,8 +1,13 @@
 // import "./styles.css"
+import Header from "./components/header";
+import Footer from "./components/footer"; 
+import BodyContent from "./components/bodyContent";
 function App() {
   return (
     <div className="App">
-      <h1> Hello Ujjwal</h1>
+      <Header />
+      <BodyContent />
+      <Footer />
     </div>
   );
 }
