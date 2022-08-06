@@ -2,7 +2,13 @@ import ListEmployee from './listEmployee'
 
 const ListEmployees= () => {
     return (
-    <ListEmployee />
+        <div className='listEmployees'>
+    <ListEmployee  />
+    <ListEmployee  />
+    <ListEmployee  />
+    <ListEmployee  />
+    <ListEmployee  />
+    </div>
     );
 }
 
