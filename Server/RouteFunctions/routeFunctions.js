@@ -1,6 +1,8 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import MySchema from '../Models/employeeModels.js';
 
+// const router = express.Router(); export default missing 
 const getEmployees = async (req, res) => {
     try {
     const getData = await MySchema.find();
@@ -37,6 +39,7 @@ const postEmployee = async(req, res) => {
     try {
         const myModel = new MySchema({name: "Ujjwal", tile: "NOC Tech", address:"2494 south park, Honolulu, Hi, 98298", picture: "picture", number:8084766127, skills: ["Java", "Javascript"]});
         await myModel.save();
+        res.status(201).json(myModel);
     } catch(error) {
         res.status(409).json({message:error})
     }
@@ -46,7 +49,8 @@ const postEmployee = async(req, res) => {
 const deleteEmployee = async(req, res) => {
     const { id } = req.params;
  try {
-    await MySchema.findByIdAndRemove(id);
+    if (!mongoose.Types.ObjectId)
+    // await MySchema.findByIdAndRemove(id);
     res.json({message: "Successfully deleted the employee"});
  } catch (err) {
     res.status(404).json({message : err.message});
