@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import reducer from "./reducers/reducer";
+// import thunk from "redux-thunk";
 import "./styles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const store = configureStore({
-  reducer: reducer,
+  reducer: {
+    employees: reducer,
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

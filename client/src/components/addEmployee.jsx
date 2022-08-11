@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react";
+import { GetEmployees } from "../actions/actionEmployees";
+import { useDispatch, useSelector } from "react-redux";
 const AddEmployee = () => {
+    const [count, setCount] = useState(0);
+    const myState = useSelector((state) => state.employees);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(GetEmployees());
+
+    }, [dispatch]);
+    myState.map(state => {
+        console.log(state);    
+    })
 
     const handleSubmit = (e) => {
          const[name, title] = e.target.value;
-        e.preventDefault();
+           e.preventDefault();
         // console.log(e.target);
         console.log(name)
     }

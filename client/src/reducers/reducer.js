@@ -1,4 +1,4 @@
-export default reducer = (employees = [], action) => {
+const reducerFunc = (employees = [], action) => {
   switch (action.type) {
     case "GETEMPLOYEES":
       return action.payload;
@@ -19,3 +19,5 @@ export default reducer = (employees = [], action) => {
       return employees;
   }
 };
+
+export default reducerFunc;
