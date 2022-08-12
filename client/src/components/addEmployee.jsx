@@ -62,7 +62,7 @@ const AddEmployee = ({ currentID, setCurrentID }) => {
   };
 
   return (
-    <div class="formclass">
+    <div className="formclass">
       <form
         key={currentID}
         id="myform"
