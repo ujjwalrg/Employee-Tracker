@@ -79,7 +79,7 @@ body {
         padding: 10px;
     }
 
-    .employeeForm input[type="submit"]{
+    .employeeForm input[type="submit"], input[type="reset"]{
         width: 30%;
         height: 50px;
         padding: 0;

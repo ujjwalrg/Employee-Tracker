@@ -1,14 +1,10 @@
 import axios from "axios";
-// import { Dispatch } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 
 const api = "http://127.0.0.1:3001";
 
-const GetEmployees = () => async (dispatch) => {
-  //   const dispatch = useDispatch();
+export const getEmployees = () => async (dispatch) => {
   try {
     const { data } = await axios.get(api);
-    console.log(data);
     dispatch({ type: "GETEMPLOYEES", payload: data });
   } catch (error) {
     console.error(error.message);
@@ -24,36 +20,30 @@ const GetEmployees = () => async (dispatch) => {
 //   }
 // };
 
-// const postEmployee = async (id) => {
-//   try {
-//     const { data } = await axios.post(`${api}/${id}`);
-//     dispatch({ type: "POSTEMPLOYEE", payload: data });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+export const postEmployee = (employee) => async (dispatch) => {
+  try {
+    const { data } = await axios.post(api, employee);
+    dispatch({ type: "POSTEMPLOYEE", payload: data });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-// const updateEmployee = async (id, updateData) => {
-//   try {
-//     const { data } = await axios.patch(`${api}/${id}`, updateData);
-//     dispatch({ type: "UPDATEEMPLOYEE", payload: data });
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// };
+export const updateEmployee = (id, updateData) => async (dispatch) => {
+  try {
+    const { data } = await axios.patch(`${api}/${id}`, updateData);
+    console.log(`asdasd ${data}`);
+    dispatch({ type: "UPDATEEMPLOYEE", payload: data });
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 
-// const deleteEmployee = async (id) => {
-//   try {
-//     await axios.delete(`${api}/${id}`);
-//     dispatch({ type: "DELETEEMPLOYEE", payload: id });
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// };
-
-export { GetEmployees };
-
-// getEmployee,
-// postEmployee,
-// deleteEmployee,
-// updateEmployee,
+export const deleteEmployee = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`${api}/${id}`);
+    dispatch({ type: "DELETEEMPLOYEE", payload: id });
+  } catch (error) {
+    console.error(error.message);
+  }
+};

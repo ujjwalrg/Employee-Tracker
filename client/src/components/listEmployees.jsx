@@ -1,13 +1,15 @@
+import { useSelector } from 'react-redux';
 import ListEmployee from './listEmployee'
 
-const ListEmployees= () => {
+const ListEmployees= ({setCurrentID}) => {
+    const employees = useSelector(state => state.employees);
+    // console.log(employees);
     return (
         <div className='listEmployees'>
-    <ListEmployee  />
-    <ListEmployee  />
-    <ListEmployee  />
-    <ListEmployee  />
-    <ListEmployee  />
+            {employees.map((employee) => (
+                // console.log(employee);
+                <ListEmployee key={employee._id} setCurrentID={setCurrentID}  employee={employee}/>
+))}
     </div>
     );
 }
