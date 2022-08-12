@@ -6,7 +6,6 @@ import MySchema from "../Models/employeeModels.js";
 const getEmployees = async (req, res) => {
   try {
     const getData = await MySchema.find();
-    // console.log("buhahahah");
     res.status(203).json(getData);
   } catch (error) {
     res.status(404).json({ message: error });
@@ -25,17 +24,17 @@ const getEmployee = async (req, res) => {
 
 const updateEmployee = async (req, res) => {
   const { id } = req.params;
-  const { name, title, skills, picture, number, address, salary } = req.body;
+  const { name, title, number, address, salary, skills, picture } = req.body;
   // skills = skills.split(',');
   console.log("hahahaha");
   const updatedEmployee = {
     name,
     title,
-    skills,
-    picture,
     number,
     address,
     salary,
+    skills,
+    picture,
     _id: id,
   };
   try {
@@ -67,7 +66,6 @@ const postEmployee = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error });
   }
-  // res.json(myModel.find());
 };
 
 const deleteEmployee = async (req, res) => {

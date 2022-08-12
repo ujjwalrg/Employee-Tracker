@@ -33,7 +33,7 @@ body {
     color: var(--brown-light2);
      position: relative;
         width: 100%;
-        height: 15vh;
+        height: 75px;
 }
 
 .mainBody{
@@ -43,37 +43,61 @@ body {
     align-items: center;
     position: relative;
     width: 100vw;
+    margin-top: 10px;
+    /* padding: 20px; */
     /* margin: 0 auto; */
     
+}
+
+.formclass{
+    position: relative;
+    width: 70vw;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px; 
+    border-bottom: 4px solid var(--brown-light2);
 }
 
 .employeeForm{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     position: relative;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-bottom: 20px;;
-    margin-bottom: 20px;
-    border-bottom: 4px solid var(--brown-light2);
 }
+    /* fieldset{
+        background-color: red;
+    } */
+
+    .employeeForm label{
+        /* display: block; */
+        width: 100%;
+        font-weight: bolder;
+        text-align:center;
+        font-size: 1.3rem;
+        /* margin: 10px; */
+    }
  
     .employeeForm legend{
         color: var(--blue-color);
         font-weight: bolder;
-        width:27%;
+        width:100%;
+        text-align: center;
         border-bottom: 4px solid var(--red-color);
         margin-bottom: 15px;
     }
      
     .employeeForm input{
-        width: 100%;
-        height: 32px;
-        margin-bottom: 8px;
+        position: relative;
+        height: 100%;
+        width: 60%;
+        margin: 0 auto;
+        /* margin-left: 30px; */
         background-color: var(--brown-light2);
         border:2px solid var(--brown-color);
+        display: block;
         color: black;
         font-size: larger;
         padding: 10px;
@@ -81,40 +105,49 @@ body {
 
     .employeeForm input[type="submit"], input[type="reset"]{
         width: 30%;
-        height: 50px;
+        height: 40px;
         padding: 0;
         /* padding-bottom: 50px; */
+        margin: 10px;
         font-size: 1.5rem;
         background-color: var(--blue-color);
         color: var(--white-color);
+    }
+    input[type="reset"]{
+        background-color: var(--red-color) !important;
     }
 
         .listEmployees{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             position: relative;
+            width: 90%;
+            height: auto;
         }
  
          .listEmployee{
-            flex-basis: 30%;
-            /* flex-grow: 1; */
-            flex-shrink: 1;
-            margin: 30px;
-            height: auto;
+            /* flex-basis: 35%; */
+            width: 25vw;
+
+            margin: 50px;
+            /* height: 300px; */
+            display: flex;
+            flex-direction: column;
             position: relative;
             border-radius: 10% !important;
         }
 
         .card-image{
-            height: 400px !important;
-            /* width: 40%; */
+            display: block;
+            width: 200px;
+            height: 300px;
             border-radius: 10% !important;
         }
 
-        .cardbody{
+        /* .cardbody{
             text-align: center;
             font-size: 1.5rem;
         }
@@ -123,4 +156,4 @@ body {
             font-size: 2rem !important;
             color: var(--brown-color);
             text-shadow: 1px 1px 1px red;
-        }
+        } */

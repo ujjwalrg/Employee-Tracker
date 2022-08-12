@@ -11,7 +11,6 @@ const reducerFunc = (employees = [], action) => {
         employee._id === action.payload._id ? action.payload : employee
       );
     case "DELETEEMPLOYEE":
-      console.log(`reducer ${action.payload}`);
       return employees.filter((employee) => employee._id !== action.payload);
 
     default:
