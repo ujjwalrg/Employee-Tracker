@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
 :root{
     --brown-color: #a3726f;
     --brown-light: #cf9a97;
@@ -10,13 +11,12 @@
 
 
 }
-html{
+html, body{
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
-}
-body {    
     background-color: white !important;
     width: 100vw;
+    font-size: 16px;
 }
 
 *{
@@ -117,43 +117,90 @@ body {
         background-color: var(--red-color) !important;
     }
 
-        .listEmployees{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: center;
+    .listEmployees{
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+        .listEmployee{
+            font-family: 'Roboto', Arial, sans-serif;
             position: relative;
-            width: 90%;
-            height: auto;
-        }
- 
-         .listEmployee{
-            /* flex-basis: 35%; */
-            width: 25vw;
+            z-index: 2;
+            overflow: hidden;
+            margin: 20px;
+            min-width: 230px;
+            max-width: 315px;
+            width: 100%;
+            color: #ffffff;
+            text-align: left;
+            line-height: 1.4em;
+            background-color: #141414;
 
-            margin: 50px;
-            /* height: 300px; */
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            border-radius: 10% !important;
         }
 
         .card-image{
-            display: block;
-            width: 200px;
+            position: relative;
+            width: 100%;
+            /* vertical-align:top; */
+            opacity: 0.85;
             height: 300px;
-            border-radius: 10% !important;
+            object-fit:cover;
+
         }
 
-        /* .cardbody{
-            text-align: center;
-            font-size: 1.5rem;
-        }
+    .cardbody{
+        width: 100%;
+            background-color: #141414;
+            padding: 25px;
+            position: relative;
+    }
 
-        .cardtitle{
-            font-size: 2rem !important;
-            color: var(--brown-color);
-            text-shadow: 1px 1px 1px red;
-        } */
+    .cardbody h1{
+      text-shadow: 1px 1px 1px red;
+      font-size: 2.0rem;
+      border-bottom: 2px solid white;
+      text-align: center;
+
+    }
+    .cardbody p{
+      text-align: center;
+      margin: 10px;
+    }
+    .cardbody > p{
+      color: var(--blue-color);
+      margin-top: 0 !important;
+      font-size: 1.7rem;
+      letter-spacing: 3px;
+    }
+    .cardbody div{
+      margin-top: 15px;;
+    } 
+    
+    .cardbody div p{
+      font-size: 1rem;
+
+    }
+
+    .cardbody div p span{
+      color: var(--brown-light2);
+      letter-spacing: 2px;
+      font-size: 1.1rem;
+      /* text-shadow: 0.5px 0.5px 0.5px white; */
+    }
+
+    .cardbody button{
+      width: 50%;
+      display: block;
+      margin: 10px auto;
+      height: 30px;
+      font-weight: bold;
+      background-color: var(--blue-color);
+      color: white;
+    }
+
+     .cardbody button:nth-of-type(2){
+      background-color: var(--red-color2);
+
+     }
