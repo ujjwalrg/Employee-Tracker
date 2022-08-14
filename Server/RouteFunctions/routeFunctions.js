@@ -42,7 +42,6 @@ const updateEmployee = async (req, res) => {
       new: true,
     });
 
-    // console.log(updateData);
     res.json(updateData);
   } catch (err) {
     res.status(405).json({ message: err.message });

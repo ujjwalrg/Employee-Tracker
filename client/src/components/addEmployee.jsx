@@ -46,26 +46,8 @@ const AddEmployee = ({ currentID, setCurrentID }) => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const [name, title, address, number, picture, skills, salary] = e.target;
-    // const num = parseInt(number.value);
-    // const amount = parseInt(salary.value);
-    // console.log(picture);
-    // console.log(name.value);
-    // console.log(picture.files[0]);
-    // const data = {
-    //   name: name.value,
-    //   title: title.value,
-    //   address: address.value,
-    //   number: num,
-    //   picture: JSON.stringify(picture.files[0]),
-    //   skills: skills.value,
-    //   salary: amount,
-    // };
-    // console.log(data);
-
     if (myState) {
       dispatch(updateEmployee(currentState._id, currentState));
-      //data
       resetForm();
     } else {
       dispatch(postEmployee(currentState));

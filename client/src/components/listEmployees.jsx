@@ -3,11 +3,10 @@ import ListEmployee from "./listEmployee";
 
 const ListEmployees = ({ setCurrentID }) => {
   const employees = useSelector((state) => state.employees);
-  //   console.log(`list emp ${employees}`);
-  return (
+
+  return employees.length > 0 ? (
     <div className="listEmployees">
       {employees.map((employee) => {
-        // console.log(employee);
         return (
           <ListEmployee
             key={employee._id}
@@ -16,6 +15,10 @@ const ListEmployees = ({ setCurrentID }) => {
           />
         );
       })}
+    </div>
+  ) : (
+    <div style={{ fontSize: "2rem", fontWeight: "bolder", color: "red" }}>
+      Loading Employees
     </div>
   );
 };

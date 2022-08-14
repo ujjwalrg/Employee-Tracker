@@ -1,5 +1,3 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
 import { deleteEmployee } from "../actions/actionEmployees";
 const ListEmployee = ({ setCurrentID, employee }) => {
@@ -14,11 +12,6 @@ const ListEmployee = ({ setCurrentID, employee }) => {
         className="card-image"
         alt="image1"
       />
-      {/* <img
-        src="../images/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash.jpg"
-        className="card-image"
-        alt="image1"
-      /> */}
       <figcaption className="cardbody">
         <h1>{employee.name}</h1>
         <p>{employee.title}</p>
