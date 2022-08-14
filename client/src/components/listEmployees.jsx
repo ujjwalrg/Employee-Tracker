@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import ListEmployee from "./listEmployee";
+import Spinner from "react-bootstrap/Spinner";
 
 const ListEmployees = ({ setCurrentID }) => {
   const employees = useSelector((state) => state.employees);
@@ -17,8 +18,8 @@ const ListEmployees = ({ setCurrentID }) => {
       })}
     </div>
   ) : (
-    <div style={{ fontSize: "2rem", fontWeight: "bolder", color: "red" }}>
-      Loading Employeesss
+    <div style={{ fontSize: "2rem", fontWeight: "bolder" }}>
+      <Spinner animation="border" variant="danger" /> Loading Employees
     </div>
   );
 };
