@@ -18,7 +18,7 @@ const ListEmployees = ({ setCurrentID }) => {
     </div>
   ) : (
     <div style={{ fontSize: "2rem", fontWeight: "bolder", color: "red" }}>
-      Loading Employees
+      Loading Employeesss
     </div>
   );
 };
