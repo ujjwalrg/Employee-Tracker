@@ -5,6 +5,8 @@ import MySchema from "../Models/employeeModels.js";
 // const router = express.Router(); export default missing
 const getEmployees = async (req, res) => {
   try {
+    // await MySchema.deleteMany({ number: { $gt: 0 } });
+    // await MySchema.save();
     const getData = await MySchema.find();
     res.status(203).json(getData);
   } catch (error) {
@@ -25,8 +27,6 @@ const getEmployee = async (req, res) => {
 const updateEmployee = async (req, res) => {
   const { id } = req.params;
   const { name, title, number, address, salary, skills, picture } = req.body;
-  // skills = skills.split(',');
-  console.log("hahahaha");
   const updatedEmployee = {
     name,
     title,

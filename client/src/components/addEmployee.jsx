@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { postEmployee, updateEmployee } from "../actions/actionEmployees";
 import { useDispatch, useSelector } from "react-redux";
+import FileBase64 from "react-file-base64";
 const AddEmployee = ({ currentID, setCurrentID }) => {
   const [currentState, setCurrentState] = useState({
     name: "",
     title: "",
-    number: "",
     address: "",
-    skills: [""],
-    salary: "",
+    number: 0,
     picture: "",
+    skills: [""],
+    salary: 0,
   });
   const myState = useSelector((state) =>
     currentID
@@ -27,36 +28,48 @@ const AddEmployee = ({ currentID, setCurrentID }) => {
     setCurrentState({
       name: "",
       title: "",
-      number: 0,
       address: "",
-      salary: 0,
-      skills: [""],
+      number: 0,
       picture: "",
+      skills: [""],
+      salary: 0,
     });
   };
+
+  document.addEventListener("wheel", function (event) {
+    if (
+      document.activeElement.type === "number" &&
+      document.activeElement.classList.contains("noscroll")
+    ) {
+      document.activeElement.blur();
+    }
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const [name, title, number, salary, address, skills] = e.target;
-    const num = parseInt(number.value);
-    const amount = parseInt(salary.value);
-    console.log(name.value);
-    console.log(amount);
-    const data = {
-      name: name.value,
-      title: title.value,
-      address: address.value,
-      number: num,
-      skills: skills.value,
-      salary: amount,
-      picture: "PIC",
-    };
-    console.log(data);
+    // const [name, title, address, number, picture, skills, salary] = e.target;
+    // const num = parseInt(number.value);
+    // const amount = parseInt(salary.value);
+    // console.log(picture);
+    // console.log(name.value);
+    // console.log(picture.files[0]);
+    // const data = {
+    //   name: name.value,
+    //   title: title.value,
+    //   address: address.value,
+    //   number: num,
+    //   picture: JSON.stringify(picture.files[0]),
+    //   skills: skills.value,
+    //   salary: amount,
+    // };
+    // console.log(data);
 
     if (myState) {
-      dispatch(updateEmployee(currentState._id, data));
+      dispatch(updateEmployee(currentState._id, currentState));
+      //data
       resetForm();
     } else {
-      dispatch(postEmployee(data));
+      dispatch(postEmployee(currentState));
+      //data
       resetForm();
     }
   };
@@ -104,34 +117,6 @@ const AddEmployee = ({ currentID, setCurrentID }) => {
           />
         </label>
         <label>
-          Phone No:
-          <input
-            type="number"
-            placeholder="18082918247"
-            name="number"
-            form="myform"
-            value={currentState.number ? currentState.number : ""}
-            onChange={(e) =>
-              setCurrentState({ ...currentState, number: e.target.value })
-            }
-            required
-          />
-        </label>
-        <label>
-          Salary:
-          <input
-            type="number"
-            placeholder="$200000"
-            name="salary"
-            form="myform"
-            value={currentState.salary ? currentState.salary : ""}
-            onChange={(e) =>
-              setCurrentState({ ...currentState, salary: e.target.value })
-            }
-            required
-          />
-        </label>
-        <label>
           Address
           <input
             type="text"
@@ -146,6 +131,39 @@ const AddEmployee = ({ currentID, setCurrentID }) => {
           />
         </label>
         <label>
+          Phone No:
+          <input
+            type="number"
+            placeholder="18082918247"
+            name="number"
+            form="myform"
+            className="noscroll"
+            value={currentState.number ? currentState.number : ""}
+            onChange={(e) =>
+              setCurrentState({ ...currentState, number: e.target.value })
+            }
+            required
+          />
+        </label>
+        <label>
+          Picture
+          {/* <input
+            type="file"
+            name="picture"
+            form="myform"
+            onChange={(e) =>
+              setCurrentState({ ...currentState, picture: e.target.files[0] })
+            }
+          /> */}
+          <FileBase64
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) =>
+              setCurrentState({ ...currentState, picture: base64 })
+            }
+          />
+        </label>
+        <label>
           Skills
           <input
             type="text"
@@ -156,6 +174,21 @@ const AddEmployee = ({ currentID, setCurrentID }) => {
             onChange={(e) =>
               setCurrentState({ ...currentState, skills: e.target.value })
             }
+          />
+        </label>
+        <label>
+          Salary:
+          <input
+            type="number"
+            placeholder="$200000"
+            name="salary"
+            form="myform"
+            className="noscroll"
+            value={currentState.salary ? currentState.salary : ""}
+            onChange={(e) =>
+              setCurrentState({ ...currentState, salary: e.target.value })
+            }
+            required
           />
         </label>
         <input type="submit" />

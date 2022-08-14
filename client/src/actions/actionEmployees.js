@@ -32,7 +32,6 @@ export const postEmployee = (employee) => async (dispatch) => {
 export const updateEmployee = (id, updateData) => async (dispatch) => {
   try {
     const { data } = await axios.patch(`${api}/${id}`, updateData);
-    console.log(`asdasd ${data}`);
     dispatch({ type: "UPDATEEMPLOYEE", payload: data });
   } catch (error) {
     console.error(error.message);
