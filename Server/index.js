@@ -1,11 +1,11 @@
-import express, { urlencoded } from "express";
+import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import getRoutes from "./Routes/routes.js";
 import bodyParser from "body-parser";
 import "dotenv/config";
 
-console.log(process.env);
+// console.log(process.env);
 const server = express();
 const PORT = process.env.PORT || 3001;
 

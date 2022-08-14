@@ -1,5 +1,4 @@
 import express from "express";
-import MySchema from "../Models/employeeModels.js";
 import {
   getEmployees,
   postEmployee,
