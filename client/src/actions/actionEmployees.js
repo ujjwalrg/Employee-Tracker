@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = "http://127.0.0.1:3001";
+const api = "http://69.164.204.224:3001/";
 
 export const getEmployees = () => async (dispatch) => {
   try {
